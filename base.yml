@@ -40,6 +40,7 @@
       pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes
       with_items:
         - flake8
+        - ipython
         - jedi
         - pdbpp
         - pip
