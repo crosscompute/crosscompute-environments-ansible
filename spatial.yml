@@ -1,0 +1,39 @@
+---
+- name: install spatial packages 
+  hosts: all
+  vars:
+    - virtualenv: ~/.virtualenvs/crosscompute
+  tasks:
+    - name: install fedora packages
+      dnf: name={{item}} state=latest
+      sudo: true
+      with_items:
+        - expat-devel
+        - gdal
+        - gdal-devel
+        - gdal-python
+        - geos
+        - geos-devel
+        - geos-python
+        - libkdtree++-python
+        - proj
+        - proj-devel
+        - proj-epsg
+        - proj-nad
+        - proj-static
+        - python-Fiona
+        - python-Rtree
+        - python-basemap
+        - python-geojson
+        - python-numpydoc
+        - python-shapely
+        - spatialindex
+        - spatialindex-devel
+    - name: install python packages
+      pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes
+      with_items:
+        - PySAL
+        - geometryIO
+        - pykdtree
+        - rasterio
+        - utm

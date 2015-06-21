@@ -1,0 +1,47 @@
+---
+- name: install web packages 
+  hosts: all
+  vars:
+    - virtualenv: ~/.virtualenvs/crosscompute
+  tasks:
+    - name: install fedora packages
+      dnf: name={{item}} state=latest
+      sudo: true
+      with_items:
+        - nodejs
+        - npm
+        - openssl-devel
+        - python-beautifulsoup4
+        - python-dogpile-cache
+        - python-flask
+        - python-msgpack
+        - python-pyramid
+        - python-pyramid-mako
+        - python-pyramid-tm
+        - python-requests
+        - python-sphinx
+        - python-sqlalchemy
+        - python-transaction
+        - python-velruse
+        - python-voluptuous
+        - python-zmq
+        - python-zope-sqlalchemy
+        - redis
+    - name: install python packages
+      pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes
+      with_items:
+        - archiveIO
+        - imapIO
+        - pyramid_debugtoolbar
+        - rq
+        - socketIO-client
+        - whenIO
+    - name: install nodejs packages
+      npm: name={{item}} state=latest global=yes
+      sudo: true
+      with_items:
+        - browserify
+        - http-proxy
+        - node-inspector
+        - socket.io
+        - uglify-js
