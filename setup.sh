@@ -1,4 +1,4 @@
-ansible-playbook \
+ansible-playbook -i "localhost," -c local \
     base.yml \
     web.yml \
     numerical.yml \
