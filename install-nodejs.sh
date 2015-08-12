@@ -6,4 +6,4 @@ mkdir $VIRTUAL_ENV/opt/node && cd $_
 curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
 ./configure --prefix=$VIRTUAL_ENV
 make install
-npm install -g browserify gulp gulp-if gulp-uglify http-proxy node-inspector socket.io vinyl-transform yargs
+npm install -g browserify socket.io uglify-js
