@@ -8,8 +8,6 @@
       dnf: name={{item}} state=latest
       sudo: true
       with_items:
-        - nodejs
-        - npm
         - openssl-devel
         - python-beautifulsoup4
         - python-dogpile-cache
@@ -36,12 +34,3 @@
         - rq
         - socketIO-client
         - whenIO
-    - name: install nodejs packages
-      npm: name={{item}} state=latest global=yes
-      sudo: true
-      with_items:
-        - browserify
-        - http-proxy
-        - node-inspector
-        - socket.io
-        - uglify-js
