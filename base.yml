@@ -42,6 +42,7 @@
         - flake8
         - ipython
         - jedi
+        - jupyter
         - pdbpp
         - pip
         - tornado
