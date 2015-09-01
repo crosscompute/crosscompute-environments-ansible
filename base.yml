@@ -52,6 +52,7 @@
         repo: git://github.com/invisibleroads/scripts.git
         dest: "{{virtualenv}}/opt/scripts"
         update: yes
+        accept_hostkey: yes
     - name: setup scripts
       command: "{{virtualenv}}/opt/scripts/setup.sh"
       args:
