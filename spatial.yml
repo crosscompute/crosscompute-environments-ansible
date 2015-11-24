@@ -21,7 +21,6 @@
         - proj-epsg
         - proj-nad
         - proj-static
-        - python-Fiona
         - python-Rtree
         - python-basemap
         - python-geojson
@@ -33,6 +32,7 @@
       pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes
       with_items:
         - PySAL
+        - fiona
         - geometryIO
         - pykdtree
         - rasterio
