@@ -5,7 +5,7 @@
     - virtualenv: ~/.virtualenvs/crosscompute
   tasks:
     - name: install fedora packages
-      dnf: name={{item}} state=latest
+      yum: name={{item}} state=latest
       sudo: true
       with_items:
         - python-Bottleneck

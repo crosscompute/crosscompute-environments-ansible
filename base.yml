@@ -5,7 +5,7 @@
     - virtualenv: ~/.virtualenvs/crosscompute
   tasks:
     - name: install fedora packages
-      dnf: name={{item}} state=latest
+      yum: name={{item}} state=latest
       sudo: true
       with_items:
         - Cython
@@ -34,7 +34,7 @@
         - wget
         - zlib-devel
     - name: update fedora packages
-      dnf: name=* state=latest
+      yum: name=* state=latest
       sudo: true
     - name: install python packages
       pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes
