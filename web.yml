@@ -8,6 +8,7 @@
       yum: name={{item}} state=latest
       sudo: true
       with_items:
+        - czmq-devel
         - openssl-devel
         - python-beautifulsoup4
         - python-dogpile-cache
