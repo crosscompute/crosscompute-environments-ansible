@@ -1,3 +1,4 @@
+sudo yum -y install yum
 sudo yum -y install ansible
 sudo yum -y install redhat-rpm-config
 sudo yum -y install python-virtualenv
