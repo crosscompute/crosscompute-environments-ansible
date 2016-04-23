@@ -3,7 +3,13 @@
   hosts: all
   vars:
     - virtualenv: ~/.virtualenvs/crosscompute
+
   tasks:
+    - name: update selected fedora packages
+      yum: name={{item}} state=latest
+      sudo: true
+      with_items:
+        - vim-minimal
     - name: install fedora packages
       yum: name={{item}} state=latest
       sudo: true
