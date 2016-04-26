@@ -31,7 +31,9 @@
       with_items:
         - archiveIO
         - imapIO
+        - pyramid
         - pyramid_debugtoolbar
+        - requests
         - rq
         - socketIO-client
         - whenIO
