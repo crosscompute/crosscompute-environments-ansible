@@ -29,7 +29,7 @@
         - spatialindex
         - spatialindex-devel
     - name: install python packages
-      pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes
+      pip: name={{item}} state=latest virtualenv={{virtualenv}} virtualenv_site_packages=yes extra_args='-I'
       with_items:
         - PySAL
         - fiona
