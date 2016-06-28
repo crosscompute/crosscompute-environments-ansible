@@ -60,7 +60,7 @@
         update: yes
         accept_hostkey: yes
     - name: setup scripts
-      command: "{{virtualenv}}/opt/scripts/setup"
+      command: "{{virtualenv}}/opt/scripts/setup {{virtualenv}}"
       args:
         chdir: "{{virtualenv}}/opt/scripts"
       changed_when: False
