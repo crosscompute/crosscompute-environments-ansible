@@ -32,6 +32,7 @@
         - archiveIO
         - imapIO
         - pyramid
+        - pyramid_ipython
         - pyramid_debugtoolbar
         - requests
         - rq
