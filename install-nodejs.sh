@@ -1,5 +1,7 @@
 #!/bin/bash
-source ~/.virtualenvs/crosscompute/bin/activate
+if [ -z "$VIRTUAL_ENV" ]; then
+    VIRTUAL_ENV=~/.virtualenvs/crosscompute
+fi
 export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib:/usr/local/lib
 export NODE_PATH=$VIRTUAL_ENV/lib/node_modules
 mkdir -p $VIRTUAL_ENV/opt/node && cd $_
