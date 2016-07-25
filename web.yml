@@ -35,7 +35,7 @@
         - pyramid
         - pyramid_ipython
         - pyramid_debugtoolbar
-        - requests
+        - requests[security]
         - rq
         - socketIO-client
         - whenIO
