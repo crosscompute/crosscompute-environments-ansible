@@ -9,6 +9,7 @@
       sudo: true
       with_items:
         - czmq-devel
+        - libffi-devel
         - openssl-devel
         - python-beautifulsoup4
         - python-dogpile-cache
