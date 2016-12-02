@@ -5,7 +5,7 @@
     - virtualenv: ~/.virtualenvs/crosscompute
   tasks:
     - name: install fedora packages
-      yum: name={{item}} state=latest
+      dnf: name={{item}} state=latest
       sudo: true
       with_items:
         - GraphicsMagick 

@@ -1,7 +1,6 @@
-sudo yum -y install yum
-sudo yum -y install ansible
-sudo yum -y install redhat-rpm-config
-sudo yum -y install python-virtualenv
+sudo dnf -y install ansible
+sudo dnf -y install redhat-rpm-config
+sudo dnf -y install python-virtualenv
 ansible-playbook $@ -i "localhost," -c local \
     base.yml \
     web.yml \
