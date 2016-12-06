@@ -1,5 +1,36 @@
 ---
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - nginx
+    - redis
+    - rubygems
+- name: install ruby packages
+  gem: name={{ item }} state=present
+  become: true
+  with_items:
+    - sass
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
+    - archiveIO
+    - arrow
+    - dogpile.cache
+    - flask
+    - imapIO
+    - msgpack-python
+    - pyramid
+    - pyramid_debugtoolbar
+    - pyramid_ipython
+    - pyramid_tm
+    - pyzmq
+    - socketIO-client
     - sphinx
+    - sqlalchemy
+    - transaction
+    - uwsgi
+    - velruse
+    - voluptuous
+    - whenIO
+    - zope.sqlalchemy

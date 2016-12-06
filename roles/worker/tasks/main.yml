@@ -3,6 +3,7 @@
   with_first_found:
     - "{{ ansible_os_family }}.yml"
     - "RedHat.yml"
+- include: base.yml
 - include: numerical.yml
 - include: graphical.yml
 - include: computational.yml

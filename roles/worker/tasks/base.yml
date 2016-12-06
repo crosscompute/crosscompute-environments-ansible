@@ -1,0 +1,12 @@
+---
+- name: install base system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ openssl_devel }}"
+- name: install base python packages
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - crosscompute
+    - crosscompute-types
+    - requests[security]

@@ -7,6 +7,7 @@ lcms2_devel: lcms2-devel
 libjpeg_devel: libjpeg-devel 
 libtiff_devel: libtiff-devel 
 libwebp_devel: libwebp-devel 
+openssl_devel: openssl-devel
 python_devel: python-devel
 tcl_devel: tcl-devel 
 tk_devel: tk-devel
