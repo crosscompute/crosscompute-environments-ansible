@@ -6,9 +6,9 @@ Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific 
     cd crosscompute-environments-ansible
     bash setup.sh
 
-These scripts have been tested to work on the following systems:
+These scripts have been tested to work with the following configurations:
 
-- Fedora 25
+- Fedora 25 on [DigitalOcean](https://www.digitalocean.com/)
 
 Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated scripts.
 
