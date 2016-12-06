@@ -5,12 +5,13 @@
   with_items:
     - aiksaurus
     - gimp
+    - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
     - nautilus-open-terminal
     - qgis
+    - unzip
     - vim-X11
     - vim-enhanced
     - vlc
-    - unzip
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:

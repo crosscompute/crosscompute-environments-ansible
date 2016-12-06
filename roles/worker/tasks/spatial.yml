@@ -1,6 +1,49 @@
 ---
+- name: install spatial system packages for geos
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ geos_devel }}"
+- name: install spatial python packages for geos
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - geos
+- name: install spatial system packages for gdal
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ gdal_devel }}"
+- name: install spatial python packages for gdal
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  environment:
+    CPLUS_INCLUDE_PATH: "/usr/include/gdal"
+    C_INCLUDE_PATH: "/usr/include/gdal"
+  with_items:
+    - gdal
+- name: install spatial system packages for proj
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ proj_devel }}"
+    - "{{ proj_epsg }}"
+    - "{{ proj_nad }}"
+    - "{{ proj_static }}"
+- name: install spatial system packages for rtree
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ spatialindex_devel }}"
 - name: install spatial python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
+    - git+https://github.com/matplotlib/basemap.git#egg=basemap
+    - fiona
+    - geojson
+    - geometryIO
     - geopy
+    - pykdtree
+    - pysal
+    - rasterio
+    - rtree
+    - shapely
     - utm
