@@ -1,5 +1,4 @@
 ---
-
 - name: bootstrap ansible
   hosts: all
   gather_facts: false
@@ -7,3 +6,4 @@
   tasks:
     - name: install packages for ansible
       raw: dnf -y install python2-dnf
+      changed_when: False

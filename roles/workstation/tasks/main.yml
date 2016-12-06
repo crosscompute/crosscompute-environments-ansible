@@ -4,12 +4,17 @@
   become: true
   with_items:
     - aiksaurus
+    - gimp
     - nautilus-open-terminal
+    - qgis
     - vim-X11
     - vim-enhanced
+    - vlc
+    - unzip
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
+    - jupyter
     - line_profiler
     - memory_profiler
     - nose-parameterized

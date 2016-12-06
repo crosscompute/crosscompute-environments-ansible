@@ -3,11 +3,55 @@
   package: name={{ item }} state=present
   become: true
   with_items:
+    - git
     - tmux
+    - wget
+- name: clone scripts
+  git:
+    repo: git://github.com/invisibleroads/scripts.git
+    dest: "{{ virtualenv }}/opt/scripts"
+    accept_hostkey: yes
+- name: setup scripts
+  command: "{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}"
+  changed_when: False
+- name: clone scripts for superuser
+  git:
+    repo: git://github.com/invisibleroads/scripts.git
+    dest: "{{ virtualenv }}/opt/scripts"
+    accept_hostkey: yes
+  become: true
+- name: setup scripts for superuser
+  command: "{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}"
+  become: true
+  changed_when: False
 - name: update system packages
   package: name=* state=latest
   become: true
+  changed_when: False
+- name: install system repositories
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
+  changed_when: False
+  when: ansible_distribution == 'Fedora'
 - name: update python packages
   pip: name={{ item }} state=latest virtualenv={{ virtualenv }}
   with_items:
     - pip
+- name: install python packages
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - bpython
+    - flake8
+    - ipdb
+    - ipython
+    - jedi
+    - pdbpp
+    - pudb
+    - pytest
+    - pytest-cov
+    - pytest-mock
+    - trepan
+    - wdb.server
