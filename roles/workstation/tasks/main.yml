@@ -1,0 +1,16 @@
+---
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - aiksaurus
+    - nautilus-open-terminal
+    - vim-X11
+    - vim-enhanced
+- name: install python packages
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - line_profiler
+    - memory_profiler
+    - nose-parameterized
+    - psutil

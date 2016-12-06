@@ -1,0 +1,19 @@
+---
+- name: apply common configuration
+  hosts: all
+  roles:
+    - common
+- name: configure servers
+  hosts: servers
+  roles:
+    - server
+- name: configure workers
+  hosts: workers
+  roles:
+    - worker
+- name: configure workstations
+  hosts: workstations
+  roles:
+    - server
+    - worker
+    - workstation

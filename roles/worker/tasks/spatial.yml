@@ -1,0 +1,6 @@
+---
+- name: install spatial python packages
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - geopy
+    - utm

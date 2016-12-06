@@ -1,8 +1,7 @@
-CrossCompute Environments via Ansible
-=====================================
-Here are [Ansible](http://www.ansible.com/) playbooks for preparing a scientific computing environment in [Fedora](http://fedoraproject.org).
+Scientific Computing Environments via Ansible
+=============================================
+Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific computing environment.
 
-    sudo dnf -y install ansible
     git clone https://github.com/invisibleroads/crosscompute-environments-ansible
     cd crosscompute-environments-ansible
-    bash setup.sh
+    bash setup.sh --extra-vars "virtualenv=~/.virtualenvs/crosscompute"

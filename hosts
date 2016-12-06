@@ -1,0 +1,9 @@
+[servers]
+
+[workers]
+
+[workstations]
+localhost ansible_connection=local
+
+[all:vars] 
+virtualenv=~/.virtualenvs/crosscompute

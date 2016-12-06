@@ -1,0 +1,13 @@
+---
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - tmux
+- name: update system packages
+  package: name=* state=latest
+  become: true
+- name: update python packages
+  pip: name={{ item }} state=latest virtualenv={{ virtualenv }}
+  with_items:
+    - pip

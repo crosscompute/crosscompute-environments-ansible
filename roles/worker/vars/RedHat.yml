@@ -1,0 +1,14 @@
+---
+blas_devel: blas-devel
+cc1plus: gcc-c++
+freeimage_devel: freeimage-devel
+freetype_devel: freetype-devel
+lcms2_devel: lcms2-devel 
+libjpeg_devel: libjpeg-devel 
+libtiff_devel: libtiff-devel 
+libwebp_devel: libwebp-devel 
+python_devel: python-devel
+tcl_devel: tcl-devel 
+tk_devel: tk-devel
+xz_devel: xz-devel
+zlib_devel: zlib-devel 

@@ -1,0 +1,39 @@
+---
+- name: install numerical system packages for pandas
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ cc1plus }}"
+    - "{{ xz_devel }}"
+    - xclip
+- name: install numerical python packages for pandas
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - backports.lzma
+    - beautifulsoup4
+    - blosc
+    - boto
+    - bottleneck
+    - google-api-python-client
+    - html5lib
+    - httplib2
+    - jinja2
+    - lxml
+    - matplotlib
+    - numexpr
+    - oauth2client
+    - openpyxl
+    - python-gflags
+    - scipy
+    - sqlalchemy
+    - tables
+    - xarray
+    - xlrd
+    - xlwt
+- name: install numerical python packages
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - h5py
+    - numpy
+    - openpyxl
+    - pandas

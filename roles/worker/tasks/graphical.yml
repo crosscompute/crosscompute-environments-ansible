@@ -1,0 +1,24 @@
+---
+- name: install graphical system packages for matplotlib
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - GraphicsMagick
+    - ffmpeg
+- name: install graphical system packages for pillow
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - "{{ freetype_devel }}"
+    - "{{ lcms2_devel }}"
+    - "{{ libjpeg_devel }}"
+    - "{{ libtiff_devel }}"
+    - "{{ libwebp_devel }}"
+    - "{{ tcl_devel }}"
+    - "{{ tk_devel }}"
+    - "{{ zlib_devel }}"
+- name: install graphical python packages
+  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  with_items:
+    - matplotlib
+    - pillow
