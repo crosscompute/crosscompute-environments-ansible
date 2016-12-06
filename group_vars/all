@@ -1,2 +1,5 @@
 ---
 virtualenv: ~/.virtualenvs/crosscompute
+swap_path: /swap
+swap_size: 512M
+swappiness: 0

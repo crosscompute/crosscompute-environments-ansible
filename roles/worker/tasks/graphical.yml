@@ -5,6 +5,7 @@
   with_items:
     - GraphicsMagick
     - ffmpeg
+
 - name: install graphical system packages for pillow
   package: name={{ item }} state=present
   become: true
@@ -17,6 +18,7 @@
     - "{{ tcl_devel }}"
     - "{{ tk_devel }}"
     - "{{ zlib_devel }}"
+
 - name: install graphical python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:

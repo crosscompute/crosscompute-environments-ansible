@@ -3,10 +3,12 @@
   package: name={{ item }} state=present
   become: true
   with_items:
+    - firewalld
     - nginx
     - nodejs
     - redis
     - rubygems
+
 - name: install node packages
   npm: name={{ item }} state=present global=yes
   become: true
@@ -14,11 +16,13 @@
     - browserify
     - socket.io
     - uglify-js
+
 - name: install ruby packages
   gem: name={{ item }} state=present
   become: true
   with_items:
     - sass
+
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
@@ -36,7 +40,6 @@
     - socketIO-client
     - sphinx
     - sqlalchemy
-    - transaction
     - uwsgi
     - velruse
     - voluptuous

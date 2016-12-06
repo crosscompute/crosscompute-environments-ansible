@@ -8,7 +8,6 @@
     - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
     - nautilus-open-terminal
     - qgis
-    - unzip
     - vim-X11
     - vim-enhanced
     - vlc
@@ -16,7 +15,6 @@
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
     - jupyter
-    - line_profiler
-    - memory_profiler
+    - line-profiler
+    - memory-profiler
     - nose-parameterized
-    - psutil

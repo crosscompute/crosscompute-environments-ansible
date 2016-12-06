@@ -17,9 +17,9 @@ done
 
 case $REMOTE_OPERATING_SYSTEM in
 Fedora)
-	if [ -n "$REMOTE_HOST" ]; then
-		ssh ${REMOTE_USER:-$USER}@$REMOTE_HOST dnf install -y python
-	fi
+	# if [ -n "$REMOTE_HOST" ]; then
+		# ssh ${REMOTE_USER:-$USER}@$REMOTE_HOST dnf install -y python
+	# fi
     sudo dnf -y install ansible
     ANSIBLE_OPTIONS+=" bootstrap.yml"
 	;;

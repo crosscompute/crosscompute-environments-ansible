@@ -1,0 +1,26 @@
+---
+- name: create swapfile
+  command: fallocate -l {{ swap_size }} {{ swap_path }}
+
+- name: format swapfile
+  command: mkswap {{ swap_path }}
+
+- name: configure fstab
+  lineinfile:
+    dest: /etc/fstab
+    state: present
+    regexp: "{{ swap_path }}"
+    line: "{{ swap_path }} none swap sw 0 0"
+
+- name: turn swap on
+  command: swapon {{ swap_path }}
+
+- name: set swappiness
+  command: sysctl vm.swappiness={{ swappiness }}
+
+- name: set swappiness permanently
+  lineinfile:
+    dest: /etc/sysctl.conf
+    state: present
+    regexp: "vm.swappiness"
+    line: "vm.swappiness={{ swappiness }}"

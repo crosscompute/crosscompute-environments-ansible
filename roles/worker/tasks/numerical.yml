@@ -6,6 +6,7 @@
     - "{{ cc1plus }}"
     - "{{ xz_devel }}"
     - xclip
+
 - name: install numerical python packages for pandas
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
@@ -30,6 +31,7 @@
     - xarray
     - xlrd
     - xlwt
+
 - name: install numerical python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:

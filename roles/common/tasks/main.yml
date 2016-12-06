@@ -3,31 +3,32 @@
   package: name={{ item }} state=present
   become: true
   with_items:
+    - gcc
     - git
+    - libselinux-python
+    - python2-virtualenv
+    - redhat-rpm-config
     - tmux
+    - unzip
     - wget
-- name: clone scripts
-  git:
-    repo: git://github.com/invisibleroads/scripts.git
-    dest: "{{ virtualenv }}/opt/scripts"
-    accept_hostkey: yes
-- name: setup scripts
-  command: "{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}"
-  changed_when: False
-- name: clone scripts for superuser
-  git:
-    repo: git://github.com/invisibleroads/scripts.git
-    dest: "{{ virtualenv }}/opt/scripts"
-    accept_hostkey: yes
+
+- name: disable system packages
+  package: name={{ item }} state=absent
   become: true
-- name: setup scripts for superuser
-  command: "{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}"
+  with_items:
+    - cockpit
+
+- include: scripts.yml
+
+- include: swap.yml
   become: true
-  changed_when: False
+  when: ansible_swaptotal_mb < 1
+
 - name: update system packages
   package: name=* state=latest
   become: true
   changed_when: False
+
 - name: install system repositories
   package: name={{ item }} state=present
   become: true
@@ -36,10 +37,12 @@
     - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
   changed_when: False
   when: ansible_distribution == 'Fedora'
+
 - name: update python packages
   pip: name={{ item }} state=latest virtualenv={{ virtualenv }}
   with_items:
     - pip
+
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
