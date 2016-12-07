@@ -17,9 +17,9 @@ done
 
 case $REMOTE_OPERATING_SYSTEM in
 Fedora)
-    sudo dnf -y install ansible
     ANSIBLE_OPTIONS+=" bootstrap.yml"
     ;;
 esac
 
+sudo pip install ansible
 ansible-playbook -i hosts $ANSIBLE_OPTIONS site.yml
