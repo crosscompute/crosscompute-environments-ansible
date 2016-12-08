@@ -19,7 +19,7 @@ Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated 
 
 ## Specify different host
 
-    vim hosts
+    vim /tmp/hosts
         [workers]
         100.200.300.400 ansible_user=root
-    OS_FAMILY=debian bash setup.sh -i hosts
+    OS_FAMILY=debian bash setup.sh -i /tmp/hosts
