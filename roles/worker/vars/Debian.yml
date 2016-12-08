@@ -1,0 +1,23 @@
+---
+GraphicsMagick: graphicsmagick
+blas_devel: libblas-dev
+cc1plus: g++
+freeimage_devel: libfreeimage-dev
+freetype_devel: libfreetype6-dev
+gdal_devel: libgdal-dev
+geos_devel: libgeos-dev
+lcms2_devel: liblcms2-dev
+libjpeg_devel: libjpeg-dev
+libtiff_devel: libtiff5-dev
+libwebp_devel: libwebp-dev
+openssl_devel: libssl-dev
+proj_devel: libproj-dev
+proj_epsg: proj-data
+proj_nad: proj-data
+proj_static: libproj-dev
+python_devel: python-dev
+spatialindex_devel: libspatialindex-dev
+tcl_devel: tcl-dev
+tk_devel: tk-dev
+xz_devel: liblzma-dev
+zlib_devel: zlib1g-dev

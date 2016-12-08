@@ -1,16 +1,28 @@
 ---
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family }}.yml"
+    - "RedHat.yml"
+
 - name: install system packages
   package: name={{ item }} state=present
   become: true
   with_items:
+    - "{{ libselinux_python }}"
+    - "{{ python2_virtualenv }}"
+    - "{{ python_devel }}"
     - gcc
     - git
-    - libselinux-python
-    - python2-virtualenv
-    - redhat-rpm-config
     - tmux
     - unzip
     - wget
+
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - redhat-rpm-config
+  when: ansible_os_family == 'RedHat'
 
 - name: disable system packages
   package: name={{ item }} state=absent
@@ -28,6 +40,14 @@
   package: name=* state=latest
   become: true
   changed_when: False
+  when: ansible_os_family == 'RedHat'
+
+- name: update system packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: true
+  when: ansible_os_family == 'Debian'
 
 - name: install system repositories
   package: name={{ item }} state=present

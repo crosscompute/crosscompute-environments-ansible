@@ -5,12 +5,25 @@
   with_items:
     - aiksaurus
     - gimp
-    - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-    - nautilus-open-terminal
     - qgis
+    - vlc
+
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - vim-gtk3
+  when: ansible_os_family == 'Debian'
+
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - nautilus-open-terminal
     - vim-X11
     - vim-enhanced
-    - vlc
+  when: ansible_os_family == 'RedHat'
+
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:

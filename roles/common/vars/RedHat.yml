@@ -1,0 +1,4 @@
+---
+libselinux_python: libselinux-python
+python2_virtualenv: python2-virtualenv
+python_devel: python-devel

@@ -8,7 +8,10 @@ Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific 
 
 These scripts have been tested to work with the following configurations:
 
-- Fedora 25 on [DigitalOcean](https://www.digitalocean.com/)
+- DigitalOcean
+
+    - Fedora 25
+    - Ubuntu 16
 
 Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated scripts.
 
@@ -21,4 +24,4 @@ Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated 
     vim hosts
         [workers]
         100.200.300.400 ansible_user=root
-    bash setup.sh -i hosts
+    OS_FAMILY=debian bash setup.sh -i hosts

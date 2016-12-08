@@ -1,12 +1,18 @@
 ---
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family }}.yml"
+    - "RedHat.yml"
+
 - name: install system packages
   package: name={{ item }} state=present
   become: true
   with_items:
+    - "{{ redis }}"
     - firewalld
     - nginx
     - nodejs
-    - redis
+    - npm
     - rubygems
 
 - name: install node packages
