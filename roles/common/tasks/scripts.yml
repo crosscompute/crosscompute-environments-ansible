@@ -2,6 +2,7 @@
 - name: clone scripts
   git:
     repo: git://github.com/invisibleroads/scripts.git
+    depth: 1
     dest: "{{ virtualenv }}/opt/scripts"
     accept_hostkey: yes
 
@@ -12,6 +13,7 @@
 - name: clone scripts for superuser
   git:
     repo: git://github.com/invisibleroads/scripts.git
+    depth: 1
     dest: "{{ virtualenv }}/opt/scripts"
     accept_hostkey: yes
   become: true
