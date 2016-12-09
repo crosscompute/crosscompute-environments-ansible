@@ -5,5 +5,5 @@
   become: true
   tasks:
     - name: install packages for ansible
-      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      raw: apt install -y python-minimal
       changed_when: False
