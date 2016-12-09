@@ -1,4 +1,9 @@
 ---
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family }}.yml"
+    - "RedHat.yml"
+
 - name: install system packages
   package: name={{ item }} state=present
   become: true
@@ -6,21 +11,14 @@
     - aiksaurus
     - gimp
     - qgis
+    - "{{ vim_X11 }}"
     - vlc
 
 - name: install system packages
   package: name={{ item }} state=present
   become: true
   with_items:
-    - vim-gtk3
-  when: ansible_os_family == 'Debian'
-
-- name: install system packages
-  package: name={{ item }} state=present
-  become: true
-  with_items:
     - nautilus-open-terminal
-    - vim-X11
     - vim-enhanced
   when: ansible_os_family == 'RedHat'
 
