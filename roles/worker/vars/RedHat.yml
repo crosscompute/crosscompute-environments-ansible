@@ -10,6 +10,8 @@ lcms2_devel: lcms2-devel
 libjpeg_devel: libjpeg-devel
 libtiff_devel: libtiff-devel
 libwebp_devel: libwebp-devel
+libxml2_devel: libxml2-devel
+libxslt_devel: libxslt-devel
 openssl_devel: openssl-devel
 proj_devel: proj-devel
 proj_epsg: proj-epsg
