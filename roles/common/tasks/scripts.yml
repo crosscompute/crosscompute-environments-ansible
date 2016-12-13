@@ -3,22 +3,22 @@
   git:
     repo: git://github.com/invisibleroads/scripts.git
     depth: 1
-    dest: "{{ virtualenv }}/opt/scripts"
+    dest: '{{ virtualenv }}/opt/scripts'
     accept_hostkey: yes
 
 - name: setup scripts
-  command: "{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}"
+  command: '{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}'
   changed_when: False
 
 - name: clone scripts for superuser
   git:
     repo: git://github.com/invisibleroads/scripts.git
     depth: 1
-    dest: "{{ virtualenv }}/opt/scripts"
+    dest: '{{ virtualenv }}/opt/scripts'
     accept_hostkey: yes
   become: true
 
 - name: setup scripts for superuser
-  command: "{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}"
+  command: '{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}'
   become: true
   changed_when: False

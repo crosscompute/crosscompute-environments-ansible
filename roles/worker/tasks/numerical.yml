@@ -3,14 +3,14 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ xz_devel }}"
+    - '{{ xz_devel }}'
 
 - name: install numerical system packages for lxml
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ libxml2_devel }}"
-    - "{{ libxslt_devel }}"
+    - '{{ libxml2_devel }}'
+    - '{{ libxslt_devel }}'
 
 - name: install numerical python packages for lxml
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
@@ -21,7 +21,7 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ cc1plus }}"
+    - '{{ cc1plus }}'
     - xclip
 
 - name: install numerical python packages for pandas

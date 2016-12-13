@@ -3,13 +3,13 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ freeimage_devel }}"
+    - '{{ freeimage_devel }}'
 
 - name: install computational python packages for scikit-image
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
     - astropy
-    # - pyamg
+    - pyamg
     - simpleitk
     - imread
 
@@ -17,8 +17,8 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ blas_devel }}"
-    - "{{ python_devel }}"
+    - '{{ blas_devel }}'
+    - '{{ python_devel }}'
 
 - name: install computational python packages for theano
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}

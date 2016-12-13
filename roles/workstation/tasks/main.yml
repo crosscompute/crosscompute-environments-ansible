@@ -1,8 +1,8 @@
 ---
-- include_vars: "{{ item }}"
+- include_vars: '{{ item }}'
   with_first_found:
-    - "{{ ansible_os_family }}.yml"
-    - "RedHat.yml"
+    - '{{ ansible_os_family }}.yml'
+    - 'RedHat.yml'
 
 - name: install system packages
   package: name={{ item }} state=present
@@ -11,7 +11,7 @@
     - aiksaurus
     - gimp
     - qgis
-    - "{{ vim_X11 }}"
+    - '{{ vim_X11 }}'
     - vlc
 
 - name: install system packages

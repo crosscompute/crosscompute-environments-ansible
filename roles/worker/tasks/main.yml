@@ -1,8 +1,8 @@
 ---
-- include_vars: "{{ item }}"
+- include_vars: '{{ item }}'
   with_first_found:
-    - "{{ ansible_os_family }}.yml"
-    - "RedHat.yml"
+    - '{{ ansible_os_family }}.yml'
+    - 'RedHat.yml'
 
 - include: base.yml
 

@@ -9,8 +9,8 @@
   lineinfile:
     dest: /etc/fstab
     state: present
-    regexp: "{{ swap_path }}"
-    line: "{{ swap_path }} none swap sw 0 0"
+    regexp: '{{ swap_path }}'
+    line: '{{ swap_path }} none swap sw 0 0'
 
 - name: turn swap on
   command: swapon {{ swap_path }}
@@ -22,5 +22,5 @@
   lineinfile:
     dest: /etc/sysctl.conf
     state: present
-    regexp: "vm.swappiness"
-    line: "vm.swappiness={{ swappiness }}"
+    regexp: 'vm.swappiness'
+    line: 'vm.swappiness={{ swappiness }}'

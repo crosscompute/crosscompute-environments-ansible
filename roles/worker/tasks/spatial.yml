@@ -1,6 +1,6 @@
 ---
 - apt_repository:
-    repo: "ppa:ubuntugis/ppa"
+    repo: 'ppa:ubuntugis/ppa'
     state: present
   when: ansible_os_family == 'Debian'
 
@@ -8,13 +8,13 @@
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ geos_devel }}"
+    - '{{ geos_devel }}'
 
 - name: install spatial system packages for gdal
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ gdal_devel }}"
+    - '{{ gdal_devel }}'
 
 - name: get spatial system package version for gdal
   command: gdal-config --version
@@ -25,26 +25,26 @@
   pip:
     name: gdal
     state: present
-    version: "{{ gdal_version_register.stdout }}"
-    virtualenv: "{{ virtualenv }}"
+    version: '{{ gdal_version_register.stdout }}'
+    virtualenv: '{{ virtualenv }}'
   environment:
-    CPLUS_INCLUDE_PATH: "/usr/include/gdal"
-    C_INCLUDE_PATH: "/usr/include/gdal"
+    CPLUS_INCLUDE_PATH: '/usr/include/gdal'
+    C_INCLUDE_PATH: '/usr/include/gdal'
 
 - name: install spatial system packages for proj
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ proj_devel }}"
-    - "{{ proj_epsg }}"
-    - "{{ proj_nad }}"
-    - "{{ proj_static }}"
+    - '{{ proj_devel }}'
+    - '{{ proj_epsg }}'
+    - '{{ proj_nad }}'
+    - '{{ proj_static }}'
 
 - name: install spatial system packages for rtree
   package: name={{ item }} state=present
   become: true
   with_items:
-    - "{{ spatialindex_devel }}"
+    - '{{ spatialindex_devel }}'
 
 - name: install spatial python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
