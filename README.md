@@ -9,13 +9,22 @@ Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific 
 These scripts have been tested to work with the following configurations:
 
 - Fedora 25 on DigitalOcean
+- Ubuntu 16.10 on DigitalOcean
 - Ubuntu 16.04 on DigitalOcean
 
 Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated scripts.
 
+## Override remote user name
+
+    bash setup.sh -i /tmp/hosts -u crosscompute
+
+## Prompt for remote user password for privilege escalation
+
+    bash setup.sh -i /tmp/hosts -c paramiko -K
+
 ## Specify different virtual environment
 
-    bash setup.sh --extra-vars "virtualenv=~/.virtualenvs/crosscompute"
+    bash setup.sh -e "virtualenv=~/.virtualenvs/crosscompute"
 
 ## Specify different host
 
