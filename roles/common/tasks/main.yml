@@ -24,12 +24,6 @@
     - redhat-rpm-config
   when: ansible_os_family == 'RedHat'
 
-- name: disable system packages
-  package: name={{ item }} state=absent
-  become: true
-  with_items:
-    - cockpit
-
 - include: scripts.yml
 
 - include: swap.yml
