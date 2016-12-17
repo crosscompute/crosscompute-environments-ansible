@@ -1,22 +1,17 @@
 ---
-- name: apply common configuration
-  hosts: all
-  roles:
-    - common
-
 - name: configure servers
   hosts: servers
   roles:
-    - server
+    - server-environment
 
 - name: configure workers
   hosts: workers
   roles:
-    - worker
+    - worker-environment
 
 - name: configure workstations
   hosts: workstations
   roles:
-    - server
-    - worker
-    - workstation
+    - server-environment
+    - worker-environment
+    - workstation-environment
