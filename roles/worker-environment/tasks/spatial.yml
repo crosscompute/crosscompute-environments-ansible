@@ -1,55 +1,20 @@
 ---
-- apt_repository:
-    repo: 'ppa:ubuntugis/ppa'
-    state: present
-  when: ansible_os_family == 'Debian'
-
-- name: install spatial system packages for geos
-  package: name={{ item }} state=present
-  become: true
-  with_items:
-    - '{{ geos_devel }}'
-
-- name: install spatial system packages for gdal
+- name: install spatial system packages
   package: name={{ item }} state=present
   become: true
   with_items:
     - '{{ gdal_devel }}'
-
-- name: get spatial system package version for gdal
-  command: gdal-config --version
-  register: gdal_version_register
-  changed_when: False
-
-- name: install spatial python packages for gdal
-  pip:
-    name: gdal
-    state: present
-    version: '{{ gdal_version_register.stdout }}'
-    virtualenv: '{{ virtualenv }}'
-  environment:
-    CPLUS_INCLUDE_PATH: '/usr/include/gdal'
-    C_INCLUDE_PATH: '/usr/include/gdal'
-
-- name: install spatial system packages for proj
-  package: name={{ item }} state=present
-  become: true
-  with_items:
+    - '{{ gdal_python }}'
+    - '{{ geos_devel }}'
+    - '{{ proj_data }}'
     - '{{ proj_devel }}'
-    - '{{ proj_epsg }}'
-    - '{{ proj_nad }}'
-    - '{{ proj_static }}'
-
-- name: install spatial system packages for rtree
-  package: name={{ item }} state=present
-  become: true
-  with_items:
+    - '{{ python_basemap }}'
+    - '{{ python_basemap_data }}'
     - '{{ spatialindex_devel }}'
 
 - name: install spatial python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
-    - git+https://github.com/matplotlib/basemap.git#egg=basemap
     - fiona
     - geojson
     - geometryIO

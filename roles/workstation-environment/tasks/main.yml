@@ -13,6 +13,7 @@
     - qgis
     - '{{ vim_X11 }}'
     - vlc
+    - xclip
 
 - name: install system packages
   package: name={{ item }} state=present
@@ -28,4 +29,3 @@
     - jupyter
     - line-profiler
     - memory-profiler
-    - nose-parameterized

@@ -1,28 +1,11 @@
 ---
-- name: install numerical system packages for backports.lzma
-  package: name={{ item }} state=present
-  become: true
-  with_items:
-    - '{{ xz_devel }}'
-
-- name: install numerical system packages for lxml
-  package: name={{ item }} state=present
-  become: true
-  with_items:
-    - '{{ libxml2_devel }}'
-    - '{{ libxslt_devel }}'
-
-- name: install numerical python packages for lxml
-  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  with_items:
-    - cython
-
 - name: install numerical system packages for pandas
   package: name={{ item }} state=present
   become: true
   with_items:
-    - '{{ cc1plus }}'
-    - xclip
+    - '{{ blosc_devel }}'
+    - '{{ python2_lxml }}'
+    - '{{ xz_devel }}'
 
 - name: install numerical python packages for pandas
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
@@ -31,28 +14,22 @@
     - beautifulsoup4
     - blosc
     - boto
-    - bottleneck
     - google-api-python-client
     - html5lib
     - httplib2
     - jinja2
-    - lxml
-    - matplotlib
-    - numexpr
     - oauth2client
     - openpyxl
     - python-gflags
-    - scipy
-    - sqlalchemy
-    - tables
     - xarray
     - xlrd
     - xlwt
 
-- name: install numerical python packages
-  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+- name: install numerical system packages
+  package: name={{ item }} state=present
+  become: true
   with_items:
-    - h5py
-    - numpy
-    - openpyxl
-    - pandas
+    - '{{ python2_h5py }}'
+    - '{{ python2_numpy }}'
+    - '{{ python2_pandas }}'
+    - '{{ python2_scipy }}'

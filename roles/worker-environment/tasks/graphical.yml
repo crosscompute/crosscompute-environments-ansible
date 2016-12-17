@@ -19,8 +19,12 @@
     - '{{ tk_devel }}'
     - '{{ zlib_devel }}'
 
+- name: install graphical system packages
+  package: name={{ item }} state=present
+  with_items:
+    - '{{ python2_matplotlib }}'
+
 - name: install graphical python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   with_items:
-    - matplotlib
     - pillow

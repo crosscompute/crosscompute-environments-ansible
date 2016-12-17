@@ -14,6 +14,12 @@ These scripts have been tested to work with the following configurations:
 
 Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated scripts.
 
+After having run the scripts, you can activate the virtual environment using any of the following shortcuts.
+
+    v  # Activate virtual environment
+    i  # Start ipython
+    n  # Start jupyter notebook
+
 ## Override remote user name
 
     bash setup.sh -i /tmp/hosts -u crosscompute
@@ -30,5 +36,5 @@ Thanks to [Salah Ahmed](https://github.com/salah93) for prototyping the updated 
 
     vim /tmp/hosts
         [workers]
-        100.200.300.400 ansible_user=root
+        100.200.300.400
     OS_FAMILY=debian bash setup.sh -i /tmp/hosts
