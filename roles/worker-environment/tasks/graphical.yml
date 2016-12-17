@@ -21,6 +21,7 @@
 
 - name: install graphical system packages
   package: name={{ item }} state=present
+  become: true
   with_items:
     - '{{ python2_matplotlib }}'
 

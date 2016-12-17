@@ -9,6 +9,7 @@ Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific 
 These scripts have been tested to work with the following configurations:
 
 - Fedora 25 on DigitalOcean
+- Fedora 24 on DigitalOcean
 - Ubuntu 16.10 on DigitalOcean
 - Ubuntu 16.04 on DigitalOcean
 
