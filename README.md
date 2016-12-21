@@ -2,7 +2,7 @@
 
 Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific computing environment.
 
-    git clone https://github.com/invisibleroads/crosscompute-environments-ansible
+    git clone https://github.com/crosscompute/crosscompute-environments-ansible
     cd crosscompute-environments-ansible
     bash setup.sh
 
@@ -21,6 +21,17 @@ After having run the scripts, you can activate the virtual environment using any
     i  # Start ipython
     n  # Start jupyter notebook
 
+## Run scripts on current machine
+
+    bash setup.sh
+
+## Run scripts on another machine
+
+    vim /tmp/hosts
+        [workers]
+        100.200.300.400
+    bash setup.sh -i /tmp/hosts
+
 ## Override remote user name
 
     bash setup.sh -i /tmp/hosts -u crosscompute
@@ -33,9 +44,6 @@ After having run the scripts, you can activate the virtual environment using any
 
     bash setup.sh -e "virtualenv=~/.virtualenvs/crosscompute"
 
-## Specify different host
+## Specify different operating system
 
-    vim /tmp/hosts
-        [workers]
-        100.200.300.400
     OS_FAMILY=debian bash setup.sh -i /tmp/hosts
