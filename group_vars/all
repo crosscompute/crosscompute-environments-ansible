@@ -3,4 +3,4 @@ virtualenv: ~/.virtualenvs/crosscompute
 swap_path: /swap
 swap_size: 512M
 swappiness: 0
-target_user: "{{ ansible_user }}"
+target_user: "{{ ansible_user | default(lookup('env', 'USER')) }}"
