@@ -58,9 +58,13 @@
     state: latest
     virtualenv: "{{ virtualenv }}"
     virtualenv_site_packages: yes
+  become: true
+  become_user: "{{ target_user }}"
 
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  become: true
+  become_user: "{{ target_user }}"
   with_items:
     - bpython
     - flake8

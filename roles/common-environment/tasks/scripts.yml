@@ -5,9 +5,13 @@
     depth: 1
     dest: '{{ virtualenv }}/opt/scripts'
     accept_hostkey: yes
+  become: true
+  become_user: "{{ target_user }}"
 
 - name: setup scripts
   command: '{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}'
+  become: true
+  become_user: "{{ target_user }}"
   changed_when: False
 
 - name: clone scripts for superuser

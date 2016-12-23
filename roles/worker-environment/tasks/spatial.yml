@@ -14,6 +14,8 @@
 
 - name: install spatial python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  become: true
+  become_user: "{{ target_user }}"
   with_items:
     - fiona
     - geojson

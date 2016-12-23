@@ -7,11 +7,13 @@
 
 - name: install computational python packages for scikit-image
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  become: true
+  become_user: "{{ target_user }}"
   with_items:
     - astropy
+    - imread
     - pyamg
     - simpleitk
-    - imread
 
 - name: install computational system packages for theano
   package: name={{ item }} state=present
@@ -22,11 +24,15 @@
 
 - name: install computational python packages for theano
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  become: true
+  become_user: "{{ target_user }}"
   with_items:
     - pydot-ng
 
 - name: install computational python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  become: true
+  become_user: "{{ target_user }}"
   with_items:
     - mahotas
     - networkx
