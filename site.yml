@@ -1,4 +1,9 @@
 ---
+- name: configure notebooks
+  hosts: notebooks
+  roles:
+    - notebook-environment
+
 - name: configure servers
   hosts: servers
   roles:
@@ -12,6 +17,7 @@
 - name: configure workstations
   hosts: workstations
   roles:
+    - notebook-environment
     - server-environment
     - worker-environment
     - workstation-environment

@@ -20,7 +20,6 @@
   become: true
   with_items:
     - nautilus-open-terminal
-    - vim-enhanced
   when: ansible_os_family == 'RedHat'
 
 - name: install python packages
@@ -28,7 +27,5 @@
   become: true
   become_user: "{{ target_user }}"
   with_items:
-    - crosscompute-notebook-extensions
-    - jupyter
     - line-profiler
     - memory-profiler
