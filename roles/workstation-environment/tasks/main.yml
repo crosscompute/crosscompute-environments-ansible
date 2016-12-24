@@ -9,6 +9,7 @@
   become: true
   with_items:
     - aiksaurus
+    - bleachbit
     - gimp
     - qgis
     - '{{ vim_X11 }}'
