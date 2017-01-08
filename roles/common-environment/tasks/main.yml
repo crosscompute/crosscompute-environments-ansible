@@ -22,14 +22,7 @@
   become: true
   with_items:
     - redhat-rpm-config
-    - vim-enhanced
   when: ansible_os_family == 'RedHat'
-
-- include: scripts.yml
-
-- include: swap.yml
-  become: true
-  when: ansible_memtotal_mb < 1024 and ansible_swaptotal_mb < 1
 
 - name: update system packages
   package: name=* state=latest
@@ -44,6 +37,13 @@
   become: true
   when: ansible_os_family == 'Debian'
 
+- name: install system packages
+  package: name={{ item }} state=present
+  become: true
+  with_items:
+    - vim-enhanced
+  when: ansible_os_family == 'RedHat'
+
 - name: install system repositories
   package: name={{ item }} state=present
   become: true
@@ -52,6 +52,12 @@
     - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
   changed_when: False
   when: ansible_distribution == 'Fedora'
+
+- include: scripts.yml
+
+- include: swap.yml
+  become: true
+  when: ansible_memtotal_mb < 1024 and ansible_swaptotal_mb < 1
 
 - name: update python packages
   pip:
