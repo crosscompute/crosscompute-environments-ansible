@@ -1,25 +1,4 @@
 ---
-- name: install python packages
-  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  with_items:
-    - jupyter
-    - crosscompute
-    - crosscompute-types
-    - crosscompute-notebook-extensions
-
-- name: install jupyter notebook extensions
-  command: "{{ virtualenv }}/bin/jupyter nbextension install --sys-prefix --py {{ item }}"
-  with_items:
-    - crosscompute_notebook_extensions
-    - widgetsnbextension
-
-- name: enable jupyter notebook extensions
-  command: "{{ virtualenv }}/bin/jupyter nbextension enable --sys-prefix --py {{ item }}"
-  with_items:
-    - crosscompute_notebook_extensions
-    - widgetsnbextension
-
-- name: enable jupyter server extensions
-  command: "{{ virtualenv }}/bin/jupyter serverextension enable --sys-prefix --py {{ item }}"
-  with_items:
-    - crosscompute_notebook_extensions
+- include: crosscompute-notebook-extensions.yml
+  become: true
+  become_user: "{{ target_user }}"
