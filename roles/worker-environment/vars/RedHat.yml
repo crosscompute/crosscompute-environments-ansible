@@ -19,7 +19,7 @@ python_basemap: python-basemap
 python_basemap_data: python-basemap-data*
 python_devel: python-devel
 python2_h5py: python2-h5py
-python2_lxml: python*-lxml
+python2_lxml: python2-lxml
 python2_matplotlib: python2-matplotlib
 python2_numpy: python2-numpy
 python2_pandas: python2-pandas
