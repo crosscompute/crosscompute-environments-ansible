@@ -12,14 +12,17 @@
   with_items:
     - crosscompute_notebook_extensions
     - widgetsnbextension
+  changed_when: False
 
 - name: enable jupyter notebook extensions
   command: "{{ virtualenv }}/bin/jupyter nbextension enable --sys-prefix --py {{ item }}"
   with_items:
     - crosscompute_notebook_extensions
     - widgetsnbextension
+  changed_when: False
 
 - name: enable jupyter server extensions
   command: "{{ virtualenv }}/bin/jupyter serverextension enable --sys-prefix --py {{ item }}"
   with_items:
     - crosscompute_notebook_extensions
+  changed_when: False
