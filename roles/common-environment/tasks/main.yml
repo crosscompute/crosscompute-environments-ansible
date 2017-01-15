@@ -11,8 +11,10 @@
     - '{{ libselinux_python }}'
     - '{{ python2_virtualenv }}'
     - '{{ python_devel }}'
+    - curl
     - gcc
     - git
+    - jq
     - tmux
     - unzip
     - wget
