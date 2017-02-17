@@ -13,7 +13,7 @@
     - astropy
     - imread
     - pyamg
-    - simpleitk
+    # - simpleitk
 
 - name: install computational system packages for theano
   package: name={{ item }} state=present
