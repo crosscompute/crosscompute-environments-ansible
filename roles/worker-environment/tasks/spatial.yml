@@ -17,7 +17,7 @@
   become: true
   become_user: "{{ target_user }}"
   with_items:
-    - fiona
+    # - fiona
     - geojson
     - geometryIO
     - geopy
