@@ -19,8 +19,6 @@
     - geojson
     - geometryIO
     - geopy
-    - pykdtree
-    - pysal
     - rasterio
     - rtree
     - shapely
