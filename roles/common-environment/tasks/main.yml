@@ -27,7 +27,6 @@
   become: true
   with_items:
     - redhat-rpm-config
-    - sudo
   when: ansible_os_family == 'RedHat'
 
 - include: scripts.yml
