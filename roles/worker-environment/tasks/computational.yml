@@ -1,20 +1,4 @@
 ---
-- name: install computational system packages for scikit-image
-  package: name={{ item }} state=present
-  become: true
-  with_items:
-    - '{{ freeimage_devel }}'
-
-- name: install computational python packages for scikit-image
-  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
-  become_user: "{{ target_user }}"
-  with_items:
-    - astropy
-    - imread
-    - pyamg
-    # - simpleitk
-
 - name: install computational system packages for theano
   package: name={{ item }} state=present
   become: true
@@ -34,9 +18,7 @@
   become: true
   become_user: "{{ target_user }}"
   with_items:
-    - mahotas
     - networkx
-    # - scikit-image
     - scikit-learn
     - statsmodels
     - theano
