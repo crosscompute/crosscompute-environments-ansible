@@ -14,7 +14,6 @@
     - curl
     - gcc
     - git
-    - jq
     - tmux
     - unzip
     - wget
@@ -25,19 +24,6 @@
   with_items:
     - redhat-rpm-config
   when: ansible_os_family == 'RedHat'
-
-- name: update system packages
-  package: name=* state=latest
-  become: true
-  changed_when: False
-  when: ansible_os_family == 'RedHat'
-
-- name: update system packages
-  apt:
-    update_cache: yes
-    upgrade: dist
-  become: true
-  when: ansible_os_family == 'Debian'
 
 - name: install system packages
   package: name={{ item }} state=present
@@ -61,7 +47,7 @@
   become: true
   when: ansible_memtotal_mb < 1024 and ansible_swaptotal_mb < 1
 
-- name: update python packages
+- name: update pip
   pip:
     name: pip
     state: latest
@@ -75,16 +61,12 @@
   become: true
   become_user: "{{ target_user }}"
   with_items:
-    - bpython
     - flake8
     - ipdb
     - ipython
     - jedi
-    - nose-parameterized
     - pdbpp
     - pudb
     - pytest
     - pytest-cov
     - pytest-mock
-    - trepan
-    - wdb.server

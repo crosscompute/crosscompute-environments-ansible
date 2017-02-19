@@ -11,6 +11,7 @@
     - aiksaurus
     - bleachbit
     - gimp
+    - jq
     - qgis
     - '{{ vim_X11 }}'
     - vlc
@@ -23,10 +24,25 @@
     - nautilus-open-terminal
   when: ansible_os_family == 'RedHat'
 
+- name: update system packages
+  package: name=* state=latest
+  become: true
+  changed_when: False
+  when: ansible_os_family == 'RedHat'
+
+- name: update system packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: true
+  when: ansible_os_family == 'Debian'
+
 - name: install python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
   become: true
   become_user: "{{ target_user }}"
   with_items:
+    - bpython
     - line-profiler
     - memory-profiler
+    - wdb.server

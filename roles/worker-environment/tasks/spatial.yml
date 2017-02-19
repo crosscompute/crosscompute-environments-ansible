@@ -8,8 +8,6 @@
     - '{{ geos_devel }}'
     - '{{ proj_data }}'
     - '{{ proj_devel }}'
-    - '{{ python_basemap }}'
-    - '{{ python_basemap_data }}'
     - '{{ spatialindex_devel }}'
 
 - name: install spatial python packages
@@ -17,7 +15,7 @@
   become: true
   become_user: "{{ target_user }}"
   with_items:
-    # - fiona
+    - fiona
     - geojson
     - geometryIO
     - geopy
