@@ -1,0 +1,6 @@
+---
+- name: remove vim system packages
+  package: name=vim-minimal state=absent
+
+- name: install vim system packages
+  package: name=vim-enhanced state=present

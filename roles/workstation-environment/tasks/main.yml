@@ -31,9 +31,7 @@
   when: ansible_os_family == 'RedHat'
 
 - name: update system packages
-  apt:
-    update_cache: yes
-    upgrade: dist
+  apt: update_cache=yes upgrade=dist
   become: true
   when: ansible_os_family == 'Debian'
 
