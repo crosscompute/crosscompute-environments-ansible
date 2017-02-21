@@ -15,11 +15,9 @@
   become: true
   become_user: "{{ target_user }}"
   with_items:
-    - fiona
     - geojson
     - geometryIO
     - geopy
-    - rasterio
     - rtree
     - shapely
     - utm
