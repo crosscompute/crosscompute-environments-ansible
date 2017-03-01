@@ -19,5 +19,6 @@
     - geometryIO
     - geopy
     - rtree
+    - pysal
     - shapely
     - utm
