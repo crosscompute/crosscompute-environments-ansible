@@ -16,6 +16,7 @@
     - beautifulsoup4
     - blosc
     - boto
+    - cython
     - google-api-python-client
     - html5lib
     - httplib2
