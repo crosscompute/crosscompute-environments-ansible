@@ -1,7 +1,6 @@
 ---
 - name: install numerical system packages for pandas
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ blosc_devel }}'
     - '{{ python2_lxml }}'
@@ -9,14 +8,12 @@
 
 - name: install numerical python packages for pandas
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
   become_user: "{{ target_user }}"
   with_items:
     - backports.lzma
     - beautifulsoup4
     - blosc
     - boto
-    - cython
     - google-api-python-client
     - html5lib
     - httplib2
@@ -30,7 +27,6 @@
 
 - name: install numerical system packages
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ python2_h5py }}'
     - '{{ python2_numpy }}'

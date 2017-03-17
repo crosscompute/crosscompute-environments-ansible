@@ -10,6 +10,7 @@
   become: true
   with_items:
     - '{{ libselinux_python }}'
+    - '{{ python2_pandas }}'
     - '{{ python2_virtualenv }}'
     - '{{ python_devel }}'
     - curl

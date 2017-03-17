@@ -1,14 +1,13 @@
 ---
 - name: install base system packages
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ cc1plus }}'
     - '{{ openssl_devel }}'
+    - '{{ python2-cython }}'
 
 - name: install base python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
   become_user: "{{ target_user }}"
   with_items:
     - crosscompute

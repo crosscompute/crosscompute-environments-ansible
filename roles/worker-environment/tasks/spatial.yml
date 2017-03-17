@@ -1,7 +1,6 @@
 ---
 - name: install spatial system packages
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ gdal_devel }}'
     - '{{ gdal_python }}'
@@ -12,13 +11,12 @@
 
 - name: install spatial python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
   become_user: "{{ target_user }}"
   with_items:
     - geojson
     - geometryIO
     - geopy
-    - rtree
     - pysal
+    - rtree
     - shapely
     - utm

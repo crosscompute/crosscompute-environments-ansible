@@ -18,11 +18,11 @@ proj_devel: proj-devel
 python_basemap: python-basemap
 python_basemap_data: python-basemap-data*
 python_devel: python-devel
+python2_cython: python2-cython
 python2_h5py: python2-h5py
 python2_lxml: python2-lxml
 python2_matplotlib: python2-matplotlib
 python2_numpy: python2-numpy
-python2_pandas: python2-pandas
 python2_scipy: python2-scipy
 spatialindex_devel: spatialindex-devel
 tcl_devel: tcl-devel

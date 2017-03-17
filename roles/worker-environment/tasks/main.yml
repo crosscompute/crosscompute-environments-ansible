@@ -6,11 +6,16 @@
     - 'RedHat.yml'
 
 - include: base.yml
+  become: true
 
 - include: numerical.yml
+  become: true
 
 - include: graphical.yml
+  become: true
 
 - include: computational.yml
+  become: true
 
 - include: spatial.yml
+  become: true

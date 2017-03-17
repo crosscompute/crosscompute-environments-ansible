@@ -1,21 +1,18 @@
 ---
 - name: install computational system packages for theano
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ blas_devel }}'
     - '{{ python_devel }}'
 
 - name: install computational python packages for theano
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
   become_user: "{{ target_user }}"
   with_items:
     - pydot-ng
 
 - name: install computational python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
   become_user: "{{ target_user }}"
   with_items:
     - networkx

@@ -18,11 +18,11 @@ proj_devel: libproj-dev
 python_basemap: python-mpltoolkits.basemap
 python_basemap_data: python-mpltoolkits.basemap-data
 python_devel: python-dev
+python2_cython: cython
 python2_h5py: python-h5py
 python2_lxml: python-lxml
 python2_matplotlib: python-matplotlib
 python2_numpy: python-numpy
-python2_pandas: python-pandas
 python2_scipy: python-scipy
 spatialindex_devel: libspatialindex-dev
 tcl_devel: tcl-dev

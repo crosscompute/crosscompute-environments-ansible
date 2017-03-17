@@ -1,14 +1,12 @@
 ---
 - name: install graphical system packages for matplotlib
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ GraphicsMagick }}'
     - ffmpeg
 
 - name: install graphical system packages for pillow
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ freetype_devel }}'
     - '{{ lcms2_devel }}'
@@ -21,13 +19,11 @@
 
 - name: install graphical system packages
   package: name={{ item }} state=present
-  become: true
   with_items:
     - '{{ python2_matplotlib }}'
 
 - name: install graphical python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
-  become: true
   become_user: "{{ target_user }}"
   with_items:
     - pillow
