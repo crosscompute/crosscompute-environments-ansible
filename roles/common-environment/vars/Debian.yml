@@ -1,5 +1,4 @@
 ---
 libselinux_python: python-selinux
-python2_pandas: python-pandas
 python2_virtualenv: python-virtualenv
-python_devel: python-dev
+python3_devel: python3-dev

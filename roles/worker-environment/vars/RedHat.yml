@@ -6,7 +6,7 @@ cc1plus: gcc-c++
 freeimage_devel: freeimage-devel
 freetype_devel: freetype-devel
 gdal_devel: gdal-devel
-gdal_python: gdal-python
+gdal_python3: gdal-python3
 geos_devel: geos-devel
 lcms2_devel: lcms2-devel
 libjpeg_devel: libjpeg-devel
@@ -15,15 +15,8 @@ libwebp_devel: libwebp-devel
 openssl_devel: openssl-devel
 proj_data: proj-*
 proj_devel: proj-devel
-python_basemap: python-basemap
-python_basemap_data: python-basemap-data*
-python_devel: python-devel
-python2_cython: python2-Cython
-python2_h5py: python2-h5py
-python2_lxml: python2-lxml
-python2_matplotlib: python2-matplotlib
-python2_numpy: python2-numpy
-python2_scipy: python2-scipy
+python3_devel: python3-devel
+python3_cython: python3-Cython
 spatialindex_devel: spatialindex-devel
 tcl_devel: tcl-devel
 tk_devel: tk-devel

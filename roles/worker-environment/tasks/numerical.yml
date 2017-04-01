@@ -3,8 +3,8 @@
   package: name={{ item }} state=present
   with_items:
     - '{{ blosc_devel }}'
-    - '{{ python2_lxml }}'
     - '{{ xz_devel }}'
+    - python3-lxml
 
 - name: install numerical python packages for pandas
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
@@ -28,7 +28,7 @@
 - name: install numerical system packages
   package: name={{ item }} state=present
   with_items:
-    - '{{ python2_h5py }}'
-    - '{{ python2_numpy }}'
-    - '{{ python2_pandas }}'
-    - '{{ python2_scipy }}'
+    - python3-h5py
+    - python3-numpy
+    - python3-pandas
+    - python3-scipy

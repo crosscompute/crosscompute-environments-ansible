@@ -10,12 +10,12 @@
   become: true
   with_items:
     - '{{ libselinux_python }}'
-    - '{{ python2_pandas }}'
     - '{{ python2_virtualenv }}'
-    - '{{ python_devel }}'
+    - '{{ python3_devel }}'
     - curl
     - gcc
     - git
+    - python3-pandas
     - tmux
     - unzip
     - wget
@@ -42,6 +42,7 @@
     name: pip
     state: latest
     virtualenv: "{{ virtualenv }}"
+    virtualenv_python: python3
     virtualenv_site_packages: yes
   become: true
   become_user: "{{ target_user }}"

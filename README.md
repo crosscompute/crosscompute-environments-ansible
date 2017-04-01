@@ -32,13 +32,21 @@ After having run the scripts, you can activate the virtual environment using any
         100.200.300.400
     bash setup.sh -i /tmp/hosts
 
-## Override remote user name
+## Override SSH user name
 
     bash setup.sh -i /tmp/hosts -u crosscompute
 
-## Prompt for remote user password for privilege escalation
+## Prompt for SSH user password
+
+    bash setup.sh -i /tmp/hosts -k
+
+## Prompt for SSH user password for privilege escalation
 
     bash setup.sh -i /tmp/hosts -c paramiko -K
+
+## Specify different target_user
+
+    bash setup.sh -e "target_user=root"
 
 ## Specify different virtual environment
 

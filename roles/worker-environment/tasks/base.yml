@@ -4,7 +4,7 @@
   with_items:
     - '{{ cc1plus }}'
     - '{{ openssl_devel }}'
-    - '{{ python2_cython }}'
+    - '{{ python3_cython }}'
 
 - name: install base python packages
   pip: name={{ item }} state=present virtualenv={{ virtualenv }}
