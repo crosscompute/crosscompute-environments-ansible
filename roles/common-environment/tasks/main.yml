@@ -13,6 +13,10 @@
   set_fact: target_user={{ ansible_user }}
   when: target_user is undefined and inventory_hostname != 'localhost'
 
+- name: show user
+  debug:
+    var: target_user
+
 - name: install system packages
   package: name={{ item }} state=present
   become: true
