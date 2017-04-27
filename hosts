@@ -1,6 +1,12 @@
-[notebooks]
+[all:vars]
+virtualenv=~/.virtualenvs/crosscompute
+swap_path=/swap
+swap_size=512M
+swappiness=0
 
 [servers]
+
+[notebooks]
 
 [workers]
 

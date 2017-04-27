@@ -5,6 +5,14 @@
     - '{{ ansible_os_family }}.yml'
     - 'RedHat.yml'
 
+- name: set user
+  set_fact: target_user={{ lookup('env', 'USER') }}
+  when: target_user is undefined and inventory_hostname == 'localhost'
+
+- name: set user
+  set_fact: target_user={{ ansible_user }}
+  when: target_user is undefined and inventory_hostname != 'localhost'
+
 - name: install system packages
   package: name={{ item }} state=present
   become: true

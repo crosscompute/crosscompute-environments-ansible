@@ -1,13 +1,13 @@
 ---
-- name: configure notebooks
-  hosts: notebooks
-  roles:
-    - notebook-environment
-
 - name: configure servers
   hosts: servers
   roles:
     - server-environment
+
+- name: configure notebooks
+  hosts: notebooks
+  roles:
+    - notebook-environment
 
 - name: configure workers
   hosts: workers
