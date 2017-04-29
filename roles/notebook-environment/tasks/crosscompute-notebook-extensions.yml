@@ -1,6 +1,6 @@
 ---
 - name: install python packages
-  pip: name={{ item }} state=present virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv }}
   with_items:
     - jupyter
     - crosscompute
