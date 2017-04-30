@@ -49,20 +49,20 @@
   become: true
   when: ansible_memtotal_mb < 1024 and ansible_swaptotal_mb < 1
 
-- name: update pip
+- name: make virtualenv
   pip:
     name: pip
     state: latest
-    virtualenv: "{{ virtualenv }}"
+    virtualenv: '{{ virtualenv }}'
     virtualenv_python: python3
     virtualenv_site_packages: yes
   become: true
-  become_user: "{{ target_user }}"
+  become_user: '{{ target_user }}'
 
 - name: install python packages
   pip: name={{ item }} virtualenv={{ virtualenv }}
   become: true
-  become_user: "{{ target_user }}"
+  become_user: '{{ target_user }}'
   with_items:
     - flake8
     - ipdb

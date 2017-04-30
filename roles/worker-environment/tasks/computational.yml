@@ -7,13 +7,13 @@
 
 - name: install computational python packages for theano
   pip: name={{ item }} virtualenv={{ virtualenv }}
-  become_user: "{{ target_user }}"
+  become_user: '{{ target_user }}'
   with_items:
     - pydot-ng
 
 - name: install computational python packages
   pip: name={{ item }} virtualenv={{ virtualenv }}
-  become_user: "{{ target_user }}"
+  become_user: '{{ target_user }}'
   with_items:
     - networkx
     - scikit-learn

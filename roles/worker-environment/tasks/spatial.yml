@@ -11,7 +11,7 @@
 
 - name: install spatial python packages
   pip: name={{ item }} virtualenv={{ virtualenv }}
-  become_user: "{{ target_user }}"
+  become_user: '{{ target_user }}'
   with_items:
     - geojson
     - geometryIO

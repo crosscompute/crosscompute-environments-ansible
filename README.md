@@ -46,11 +46,11 @@ After having run the scripts, you can activate the virtual environment using any
 
 ## Specify different target_user
 
-    bash setup.sh -e "target_user=root"
+    bash setup.sh -e 'target_user=root'
 
 ## Specify different virtual environment
 
-    bash setup.sh -e "virtualenv=~/.virtualenvs/crosscompute"
+    bash setup.sh -e 'virtualenv=~/.virtualenvs/crosscompute'
 
 ## Specify different operating system
 

@@ -39,7 +39,7 @@
 - name: install python packages
   pip: name={{ item }} virtualenv={{ virtualenv }}
   become: true
-  become_user: "{{ target_user }}"
+  become_user: '{{ target_user }}'
   with_items:
     - bpython
     - line-profiler
