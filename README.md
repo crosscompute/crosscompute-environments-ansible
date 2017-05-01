@@ -4,7 +4,7 @@ Here are [Ansible](http://www.ansible.com) playbooks for preparing a scientific 
 
     git clone https://github.com/crosscompute/crosscompute-environments-ansible
     cd crosscompute-environments-ansible
-    bash setup.sh
+    bash scripts/setup.sh
 
 These scripts have been tested to work with the following configurations:
 
@@ -23,35 +23,35 @@ After having run the scripts, you can activate the virtual environment using any
 
 ## Run scripts on current machine
 
-    bash setup.sh
+    bash scripts/setup.sh
 
 ## Run scripts on another machine
 
     vim /tmp/hosts
         [workers]
         100.200.300.400
-    bash setup.sh -i /tmp/hosts
+    bash scripts/setup.sh -i /tmp/hosts
 
 ## Override SSH user name
 
-    bash setup.sh -i /tmp/hosts -u crosscompute
+    bash scripts/setup.sh -i /tmp/hosts -u crosscompute
 
 ## Prompt for SSH user password
 
-    bash setup.sh -i /tmp/hosts -k
+    bash scripts/setup.sh -i /tmp/hosts -k
 
 ## Prompt for SSH user password for privilege escalation
 
-    bash setup.sh -i /tmp/hosts -c paramiko -K
+    bash scripts/setup.sh -i /tmp/hosts -c paramiko -K
 
 ## Specify different target_user
 
-    bash setup.sh -e 'target_user=root'
+    bash scripts/setup.sh -e 'target_user=root'
 
 ## Specify different virtual environment
 
-    bash setup.sh -e 'virtualenv=~/.virtualenvs/crosscompute'
+    bash scripts/setup.sh -e 'virtualenv=~/.virtualenvs/crosscompute'
 
 ## Specify different operating system
 
-    OS_FAMILY=debian bash setup.sh -i /tmp/hosts
+    OS_FAMILY=debian bash scripts/setup.sh -i /tmp/hosts

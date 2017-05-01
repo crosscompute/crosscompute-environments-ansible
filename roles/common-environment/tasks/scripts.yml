@@ -1,28 +1,21 @@
 ---
+- name: set scripts folder
+  set_fact: scripts_folder={{ virtualenv }}/opt/scripts
+  become_user: '{{ target_user }}'
+
 - name: clone scripts
   git:
     accept_hostkey: yes
     depth: 1
-    dest: '{{ virtualenv }}/opt/scripts'
+    dest: '{{ scripts_folder }}'
     repo: git://github.com/invisibleroads/scripts.git
-  become: true
   become_user: '{{ target_user }}'
 
 - name: setup scripts
-  command: '{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}'
-  become: true
+  command: '{{ scripts_folder }}/setup {{ virtualenv }}'
   become_user: '{{ target_user }}'
   changed_when: False
 
-- name: clone scripts for superuser
-  git:
-    accept_hostkey: yes
-    depth: 1
-    dest: '{{ virtualenv }}/opt/scripts'
-    repo: git://github.com/invisibleroads/scripts.git
-  become: true
-
 - name: setup scripts for superuser
-  command: '{{ virtualenv }}/opt/scripts/setup {{ virtualenv }}'
-  become: true
+  command: '{{ scripts_folder }}/setup {{ virtualenv }}'
   changed_when: False
