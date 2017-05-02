@@ -5,18 +5,22 @@
     - '{{ ansible_os_family }}.yml'
     - 'RedHat.yml'
 
-- name: set user
+- name: get user
   set_fact: target_user={{ lookup('env', 'USER') }}
   when: target_user is undefined and inventory_hostname == 'localhost'
 
-- name: set user
+- name: get user
   set_fact: target_user={{ ansible_user }}
   when: target_user is undefined and inventory_hostname != 'localhost'
 
-- name: set virtualenv folder
-  set_fact: virtualenv_folder={{ lookup('env', 'HOME') }}/.virtualenvs/{{ virtualenv_name }}
-  become: true
-  become_user: '{{ target_user }}'
+- name: get user information
+  getent: database=passwd key={{ target_user }}
+
+- name: get user folder
+  set_fact: home_folder={{ getent_passwd[target_user][4] }}
+
+- name: get virtualenv folder
+  set_fact: virtualenv_folder={{ home_folder }}/.virtualenvs/{{ virtualenv_name }}
 
 - name: show virtualenv folder
   debug: var=virtualenv_folder
