@@ -6,13 +6,13 @@
     - '{{ python3_devel }}'
 
 - name: install computational python packages for theano
-  pip: name={{ item }} virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become_user: '{{ target_user }}'
   with_items:
     - pydot-ng
 
 - name: install computational python packages
-  pip: name={{ item }} virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become_user: '{{ target_user }}'
   with_items:
     - networkx

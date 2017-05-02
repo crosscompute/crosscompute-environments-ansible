@@ -13,9 +13,13 @@
   set_fact: target_user={{ ansible_user }}
   when: target_user is undefined and inventory_hostname != 'localhost'
 
-- name: show user
-  debug:
-    var: target_user
+- name: set virtualenv folder
+  set_fact: virtualenv_folder={{ lookup('env', 'HOME') }}/.virtualenvs/{{ virtualenv_name }}
+  become: true
+  become_user: '{{ target_user }}'
+
+- name: show virtualenv folder
+  debug: var=virtualenv_folder
 
 - name: install system packages
   package: name={{ item }} state=present
@@ -54,14 +58,14 @@
   pip:
     name: pip
     state: latest
-    virtualenv: '{{ virtualenv }}'
+    virtualenv: '{{ virtualenv_folder }}'
     virtualenv_python: python3
     virtualenv_site_packages: yes
   become: true
   become_user: '{{ target_user }}'
 
 - name: install python packages
-  pip: name={{ item }} virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become: true
   become_user: '{{ target_user }}'
   with_items:

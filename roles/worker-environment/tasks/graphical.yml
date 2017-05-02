@@ -23,7 +23,7 @@
     - python3-matplotlib
 
 - name: install graphical python packages
-  pip: name={{ item }} virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become_user: '{{ target_user }}'
   with_items:
     - pillow

@@ -31,7 +31,7 @@
     - sass
 
 - name: install python packages
-  pip: name={{ item }} virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become: true
   become_user: '{{ target_user }}'
   with_items:

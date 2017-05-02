@@ -10,7 +10,7 @@
     - '{{ spatialindex_devel }}'
 
 - name: install spatial python packages
-  pip: name={{ item }} virtualenv={{ virtualenv }}
+  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become_user: '{{ target_user }}'
   with_items:
     - geojson

@@ -50,7 +50,7 @@ After having run the scripts, you can activate the virtual environment using any
 
 ## Specify different virtual environment
 
-    bash scripts/setup.sh -e 'virtualenv=~/.virtualenvs/crosscompute'
+    bash scripts/setup.sh -e 'virtualenv_name=crosscompute'
 
 ## Specify different operating system
 
