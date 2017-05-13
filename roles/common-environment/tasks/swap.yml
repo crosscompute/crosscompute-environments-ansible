@@ -22,5 +22,5 @@
   lineinfile:
     dest: /etc/sysctl.conf
     state: present
-    regexp: 'vm.swappiness'
+    regexp: vm.swappiness
     line: 'vm.swappiness={{ swappiness }}'
