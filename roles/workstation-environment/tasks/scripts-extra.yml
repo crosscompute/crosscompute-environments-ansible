@@ -1,0 +1,16 @@
+---
+- name: set scripts_extra folder
+  set_fact: scripts_extra_folder={{ virtualenv_folder }}/opt/scripts-extra
+
+- name: clone scripts-extra
+  git:
+    accept_hostkey: yes
+    depth: 1
+    dest: '{{ scripts_extra_folder }}'
+    repo: git://github.com/invisibleroads/scripts-extra.git
+  become_user: '{{ target_user }}'
+
+- name: setup scripts
+  command: '{{ scripts_extra_folder }}/setup'
+  become_user: '{{ target_user }}'
+  changed_when: False

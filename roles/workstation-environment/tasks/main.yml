@@ -45,3 +45,6 @@
     - line-profiler
     - memory-profiler
     - wdb.server
+
+- include: scripts-extra.yml
+  become: true
