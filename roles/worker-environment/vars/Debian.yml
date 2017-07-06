@@ -3,7 +3,6 @@ GraphicsMagick: graphicsmagick
 blas_devel: libblas-dev
 blosc_devel: libblosc-dev
 cc1plus: g++
-freeimage_devel: libfreeimage-dev
 freetype_devel: libfreetype6-dev
 gdal_devel: libgdal-dev
 gdal_python3: python3-gdal

@@ -15,21 +15,15 @@
     - nodejs
     - npm
     - policycoreutils-python-utils
-    - rubygems
+    - rubygem-sass
 
 - name: install node packages
   npm: name={{ item }} state=present global=yes
   become: true
   with_items:
     - browserify
-    - socket.io
+    - socket.io@1.6.0
     - uglify-js
-
-- name: install ruby packages
-  gem: name={{ item }} state=present
-  become: true
-  with_items:
-    - sass
 
 - name: install python packages
   pip: name={{ item }} virtualenv={{ virtualenv_folder }}
@@ -43,15 +37,12 @@
     - imapIO
     - msgpack-python
     - pyramid
-    - pyramid_debugtoolbar
-    - pyramid_ipython
-    - pyramid_tm
+    - pyramid-debugtoolbar
+    - pyramid-ipython
+    - pyramid-tm
     - pyzmq
     - socketIO-client
     - sphinx
     - sqlalchemy
-    - uwsgi
-    - velruse
-    - voluptuous
     - whenIO
     - zope.sqlalchemy

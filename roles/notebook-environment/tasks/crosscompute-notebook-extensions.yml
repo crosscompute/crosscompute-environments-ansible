@@ -3,26 +3,24 @@
   pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   with_items:
     - jupyter
-    - crosscompute
-    - crosscompute-types
     - crosscompute-notebook-extensions
 
 - name: install jupyter notebook extensions
-  command: '{{ virtualenv_folder }}/bin/jupyter nbextension install --sys-prefix --py {{ item }}'
+  command: '{{ virtualenv_folder }}/bin/jupyter nbextension install --py --sys-prefix {{ item }}'
   with_items:
     - crosscompute_notebook_extensions
     - widgetsnbextension
   changed_when: False
 
 - name: enable jupyter notebook extensions
-  command: '{{ virtualenv_folder }}/bin/jupyter nbextension enable --sys-prefix --py {{ item }}'
+  command: '{{ virtualenv_folder }}/bin/jupyter nbextension enable --py --sys-prefix {{ item }}'
   with_items:
     - crosscompute_notebook_extensions
     - widgetsnbextension
   changed_when: False
 
 - name: enable jupyter server extensions
-  command: '{{ virtualenv_folder }}/bin/jupyter serverextension enable --sys-prefix --py {{ item }}'
+  command: '{{ virtualenv_folder }}/bin/jupyter serverextension enable --py --sys-prefix {{ item }}'
   with_items:
     - crosscompute_notebook_extensions
   changed_when: False
