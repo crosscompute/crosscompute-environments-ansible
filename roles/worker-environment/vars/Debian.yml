@@ -8,6 +8,7 @@ gdal_devel: libgdal-dev
 gdal_python3: python3-gdal
 geos_devel: libgeos-dev
 lcms2_devel: liblcms2-dev
+libffi_devel: libffi-dev
 libjpeg_devel: libjpeg-dev
 libtiff_devel: libtiff5-dev
 libwebp_devel: libwebp-dev
