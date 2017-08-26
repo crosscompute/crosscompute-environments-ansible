@@ -1,5 +1,5 @@
 ---
 virtualenv_name: crosscompute
 swap_path: /swap
-swap_size: 1g
+swap_size: 2g
 swappiness: 10
