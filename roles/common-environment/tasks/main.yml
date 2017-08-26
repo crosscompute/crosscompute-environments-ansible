@@ -62,7 +62,7 @@
 
 - include: swap.yml
   become: true
-  when: ansible_memtotal_mb < 1024 and ansible_swaptotal_mb < 1
+  when: ansible_memtotal_mb < 2048 and ansible_swaptotal_mb < 1
 
 - name: make virtualenv
   pip:
