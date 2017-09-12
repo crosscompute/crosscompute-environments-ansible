@@ -3,8 +3,8 @@
   package: name={{ item }} state=present
   with_items:
     - '{{ blosc_devel }}'
-    - '{{ xz_devel }}'
     - python3-lxml
+    - '{{ xz_devel }}'
 
 - name: install numerical python packages for pandas
   pip: name={{ item }} virtualenv={{ virtualenv_folder }}
