@@ -5,17 +5,17 @@
     - '{{ ansible_os_family }}.yml'
     - 'RedHat.yml'
 
-- include: base.yml
+- import_tasks: base.yml
   become: true
 
-- include: numerical.yml
+- import_tasks: numerical.yml
   become: true
 
-- include: graphical.yml
+- import_tasks: graphical.yml
   become: true
 
-- include: computational.yml
+- import_tasks: computational.yml
   become: true
 
-- include: spatial.yml
+- import_tasks: spatial.yml
   become: true

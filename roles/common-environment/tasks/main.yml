@@ -46,7 +46,7 @@
     - unzip
     - wget
 
-- include: vim.yml
+- import_tasks: vim.yml
   become: true
   when: ansible_os_family == 'RedHat'
 
@@ -57,10 +57,10 @@
     - redhat-rpm-config
   when: ansible_os_family == 'RedHat'
 
-- include: scripts.yml
+- import_tasks: scripts.yml
   become: true
 
-- include: swap.yml
+- import_tasks: swap.yml
   become: true
   when: ansible_memtotal_mb < 2048 and ansible_swaptotal_mb < 1
 

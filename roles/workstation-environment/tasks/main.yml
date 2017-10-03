@@ -46,5 +46,5 @@
     - memory-profiler
     - wdb.server
 
-- include: scripts-extra.yml
+- import_tasks: scripts-extra.yml
   become: true
