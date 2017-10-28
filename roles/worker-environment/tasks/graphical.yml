@@ -27,5 +27,3 @@
   become_user: '{{ target_user }}'
   with_items:
     - pillow
-    - scikit-image
-    - scikit-video
