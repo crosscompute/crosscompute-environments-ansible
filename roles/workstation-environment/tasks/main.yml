@@ -36,15 +36,5 @@
   become: true
   when: ansible_os_family == 'Debian'
 
-- name: install python packages
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
-  become: true
-  become_user: '{{ target_user }}'
-  with_items:
-    - bpython
-    - line-profiler
-    - memory-profiler
-    - wdb.server
-
 - import_tasks: scripts-extra.yml
   become: true
