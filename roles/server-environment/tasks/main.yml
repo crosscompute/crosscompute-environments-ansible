@@ -34,7 +34,6 @@
     - arrow
     - dogpile.cache
     - flask
-    - imapIO
     - msgpack-python
     - pyramid
     - pyramid-ipython

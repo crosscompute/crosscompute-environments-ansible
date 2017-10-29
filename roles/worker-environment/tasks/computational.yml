@@ -17,5 +17,3 @@
   with_items:
     - networkx
     - scikit-learn
-    - statsmodels
-    - theano
