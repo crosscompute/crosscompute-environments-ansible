@@ -86,7 +86,6 @@
     - pdbpp
     - pudb
     - pytest
-    - pytest-cov
     - pytest-mock
 
 - name: install system repositories

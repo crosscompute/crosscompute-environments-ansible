@@ -13,8 +13,6 @@
     - backports.lzma
     - beautifulsoup4
     - blosc
-    - boto
-    - google-api-python-client
     - html5lib
     - httplib2
     - jinja2
