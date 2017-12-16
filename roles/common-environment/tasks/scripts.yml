@@ -1,6 +1,6 @@
 ---
 - name: set scripts folder
-  set_fact: scripts_folder={{ virtualenv_folder }}/opt/scripts
+  set_fact: scripts_folder=/tmp/scripts
 
 - name: clone scripts
   git:
