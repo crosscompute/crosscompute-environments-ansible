@@ -13,7 +13,8 @@
   pip: name={{ item }} virtualenv={{ virtualenv_folder }}
   become_user: '{{ target_user }}'
   with_items:
+    - shapely[vectorized]
     - geojson
     - geometryIO
     - geopy
-    - shapely
+    - geotable
