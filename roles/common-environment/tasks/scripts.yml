@@ -1,7 +1,6 @@
 ---
 - set_fact:
     scripts_folder: /tmp/scripts
-  tags: always
 
 - name: clone scripts
   git:
