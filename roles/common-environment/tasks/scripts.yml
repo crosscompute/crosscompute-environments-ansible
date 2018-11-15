@@ -7,7 +7,7 @@
     accept_hostkey: yes
     depth: 1
     dest: '{{ scripts_folder }}'
-    repo: git://github.com/invisibleroads/scripts.git
+    repo: https://github.com/invisibleroads/scripts.git
   become_user: '{{ target_user }}'
 
 - name: setup scripts
