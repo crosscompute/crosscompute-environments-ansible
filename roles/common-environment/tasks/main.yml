@@ -37,6 +37,7 @@
   with_items:
     - '{{ libselinux_python }}'
     - '{{ python2_virtualenv }}'
+    - '{{ python3_virtualenv }}'
     - '{{ python3_devel }}'
     - curl
     - gcc
