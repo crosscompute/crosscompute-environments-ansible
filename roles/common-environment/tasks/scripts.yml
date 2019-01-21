@@ -11,10 +11,10 @@
   become_user: '{{ target_user }}'
 
 - name: setup scripts
-  command: '{{ scripts_folder }}/setup {{ virtualenv_name }}'
+  command: 'bash {{ scripts_folder }}/setup.sh {{ virtualenv_name }}'
   become_user: '{{ target_user }}'
   changed_when: False
 
 - name: setup scripts for superuser
-  command: '{{ scripts_folder }}/setup {{ virtualenv_name }}'
+  command: 'bash {{ scripts_folder }}/setup.sh {{ virtualenv_name }}'
   changed_when: False
