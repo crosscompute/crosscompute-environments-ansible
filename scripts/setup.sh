@@ -1,7 +1,9 @@
-if [ -n "$(command -v dnf)" ]; then
-    sudo dnf -y install ansible
-    ansible-playbook -i hosts $@ site.yml
-elif [ -n "$(command -v apt-get)" ]; then
-    sudo apt-get -y install ansible
-    ansible-playbook -i hosts $@ bootstrap-debian.yml site.yml
+OS_FAMILY=${OS_FAMILY:-redhat}
+CONFIGURATION_PATHS=site.yml
+
+if [[ "$OS_FAMILY" == "debian" ]]; then
+    CONFIGURATION_PATHS="bootstrap-debian.yml $CONFIGURATION_PATHS"
 fi
+
+python3 -m pip install -U ansible
+python3 /usr/bin/ansible-playbook -i hosts $@ $CONFIGURATION_PATHS
