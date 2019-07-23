@@ -5,5 +5,5 @@ if [[ "$OS_FAMILY" == "debian" ]]; then
     CONFIGURATION_PATHS="bootstrap-debian.yml $CONFIGURATION_PATHS"
 fi
 
-python3 -m pip install -U ansible
+python3 -m pip install --user --upgrade ansible
 python3 /usr/bin/ansible-playbook -i hosts $@ $CONFIGURATION_PATHS
