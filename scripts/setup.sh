@@ -6,4 +6,4 @@ if [[ "$OS_FAMILY" == "debian" ]]; then
 fi
 
 python3 -m pip install --user --upgrade ansible
-python3 /usr/bin/ansible-playbook -i hosts $@ $CONFIGURATION_PATHS
+ansible-playbook -i hosts $@ $CONFIGURATION_PATHS
