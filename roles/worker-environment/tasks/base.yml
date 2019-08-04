@@ -8,9 +8,9 @@
     - '{{ python3_cython }}'
 
 - name: install base python packages
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
+  pip: virtualenv={{ virtualenv_folder }}
+    name:
+      - crosscompute
+      - crosscompute-types
+      - requests[security]
   become_user: '{{ target_user }}'
-  with_items:
-    - crosscompute
-    - crosscompute-types
-    - requests[security]

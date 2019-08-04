@@ -10,11 +10,11 @@
     - '{{ proj_devel }}'
 
 - name: install spatial python packages
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
+  pip: virtualenv={{ virtualenv_folder }}
+    name:
+      - shapely[vectorized]
+      - geojson
+      - geometryIO
+      - geopy
+      - geotable
   become_user: '{{ target_user }}'
-  with_items:
-    - shapely[vectorized]
-    - geojson
-    - geometryIO
-    - geopy
-    - geotable

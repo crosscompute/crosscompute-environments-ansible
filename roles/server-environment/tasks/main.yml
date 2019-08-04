@@ -26,21 +26,21 @@
     - uglify-js
 
 - name: install python packages
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
+  pip: virtualenv={{ virtualenv_folder }}
+    name:
+      - archiveIO
+      - arrow
+      - dogpile.cache
+      - flask
+      - msgpack-python
+      - pyramid
+      - pyramid-ipython
+      - pyramid-tm
+      - pyzmq
+      - socketIO-client
+      - sphinx
+      - sqlalchemy
+      - whenIO
+      - zope.sqlalchemy
   become: true
   become_user: '{{ target_user }}'
-  with_items:
-    - archiveIO
-    - arrow
-    - dogpile.cache
-    - flask
-    - msgpack-python
-    - pyramid
-    - pyramid-ipython
-    - pyramid-tm
-    - pyzmq
-    - socketIO-client
-    - sphinx
-    - sqlalchemy
-    - whenIO
-    - zope.sqlalchemy

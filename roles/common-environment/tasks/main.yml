@@ -76,18 +76,18 @@
   become_user: '{{ target_user }}'
 
 - name: install python packages
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
+  pip: virtualenv={{ virtualenv_folder }}
+    name:
+      - flake8
+      - ipdb
+      - ipython
+      - jedi
+      - pdbpp
+      - pudb
+      - pytest
+      - pytest-mock
   become: true
   become_user: '{{ target_user }}'
-  with_items:
-    - flake8
-    - ipdb
-    - ipython
-    - jedi
-    - pdbpp
-    - pudb
-    - pytest
-    - pytest-mock
 
 - name: install system repositories
   package: name={{ item }} state=present

@@ -1,9 +1,9 @@
 ---
 - name: install python packages
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
-  with_items:
-    - jupyter
-    - crosscompute-notebook-extensions
+  pip: virtualenv={{ virtualenv_folder }}
+    name:
+      - jupyter
+      - crosscompute-notebook-extensions
 
 - name: install jupyter notebook extensions
   command: '{{ virtualenv_folder }}/bin/jupyter nbextension install --py --sys-prefix {{ item }}'

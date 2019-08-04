@@ -7,18 +7,18 @@
     - '{{ xz_devel }}'
 
 - name: install numerical python packages for pandas
-  pip: name={{ item }} virtualenv={{ virtualenv_folder }}
+  pip: virtualenv={{ virtualenv_folder }}
+    name:
+      - backports.lzma
+      - beautifulsoup4
+      # - blosc
+      - httplib2
+      - jinja2
+      - openpyxl
+      - xarray
+      - xlrd
+      - xlwt
   become_user: '{{ target_user }}'
-  with_items:
-    - backports.lzma
-    - beautifulsoup4
-    # - blosc
-    - httplib2
-    - jinja2
-    - openpyxl
-    - xarray
-    - xlrd
-    - xlwt
 
 - name: install numerical system packages
   package: name={{ item }} state=present
