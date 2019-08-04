@@ -2,7 +2,7 @@
 - name: install numerical system packages for pandas
   package: name={{ item }} state=present
   with_items:
-    - '{{ blosc_devel }}'
+    # - '{{ blosc_devel }}'
     - python3-lxml
     - '{{ xz_devel }}'
 
@@ -12,7 +12,7 @@
   with_items:
     - backports.lzma
     - beautifulsoup4
-    - blosc
+    # - blosc
     - httplib2
     - jinja2
     - openpyxl
