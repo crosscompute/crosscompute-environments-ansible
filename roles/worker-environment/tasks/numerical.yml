@@ -7,7 +7,8 @@
     - '{{ xz_devel }}'
 
 - name: install numerical python packages for pandas
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - backports.lzma
       - beautifulsoup4

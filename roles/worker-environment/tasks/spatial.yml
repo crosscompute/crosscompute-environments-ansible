@@ -10,7 +10,8 @@
     - '{{ proj_devel }}'
 
 - name: install spatial python packages
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - shapely[vectorized]
       - geojson

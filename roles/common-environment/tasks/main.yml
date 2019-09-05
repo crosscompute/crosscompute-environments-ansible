@@ -76,7 +76,8 @@
   become_user: '{{ target_user }}'
 
 - name: install python packages
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - flake8
       - ipdb

@@ -1,6 +1,7 @@
 ---
 - name: install python packages
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - jupyter
       - crosscompute-notebook-extensions

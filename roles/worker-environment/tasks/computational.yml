@@ -6,13 +6,15 @@
     - '{{ python3_devel }}'
 
 - name: install computational python packages for theano
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - pydot-ng
   become_user: '{{ target_user }}'
 
 - name: install computational python packages
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - networkx
       - scikit-learn

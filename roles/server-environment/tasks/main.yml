@@ -26,7 +26,8 @@
     - uglify-js
 
 - name: install python packages
-  pip: virtualenv={{ virtualenv_folder }}
+  pip:
+    virtualenv: '{{ virtualenv_folder }}'
     name:
       - archiveIO
       - arrow
