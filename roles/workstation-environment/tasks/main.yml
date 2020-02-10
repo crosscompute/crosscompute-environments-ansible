@@ -10,7 +10,7 @@
   become: true
   with_items:
     - aiksaurus
-    - bleachbit
+    # - bleachbit
     - gimp
     - jq
     - qgis
