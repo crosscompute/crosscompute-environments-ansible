@@ -1,0 +1,10 @@
+
+---
+- name: install system packages
+  package: name=fedora-workstation-repositories state=present
+
+- name: enable google chrome repository
+  command: dnf config-manager --set-enabled google-chrome
+
+- name: install system packages
+  package: name=google-chrome state=present

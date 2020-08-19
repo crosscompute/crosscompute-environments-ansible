@@ -18,6 +18,10 @@
     - vlc
     - xclip
 
+- import_tasks: google-chrome.yml
+  become: true
+  when: ansible_os_family == 'RedHat'
+
 - name: install system packages
   package: name={{ item }} state=present
   become: true
